@@ -1,0 +1,11 @@
+Flask
+Flask-Bcrypt
+Flask-Session
+pymongo
+requests
+beautifulsoup4
+deep-translator
+transformers
+concurrent.futures
+werkzeug
+python-docx

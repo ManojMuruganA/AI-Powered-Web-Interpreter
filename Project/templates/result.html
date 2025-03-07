@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Translated Content</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        margin: 50px auto;
+        max-width: 80%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .section {
+        margin-bottom: 30px;
+      }
+      .section h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #333;
+      }
+      .section pre {
+        white-space: pre-wrap;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        overflow-x: auto;
+      }
+      .download-section {
+        text-align: center;
+        margin-top: 30px;
+      }
+      .btn-download {
+        padding: 12px 24px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+      .btn-download:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="background-image" src="https://raw.githubusercontent.com/ManojMuruganA/video-files/main/background.jpg" alt="Background Image">
+
+    <div class="content" style="max-height: 80vh; overflow-y: auto;">
+      <div class="section original">
+        <h1>Original Content</h1>
+        <pre>{{ original }}</pre>
+      </div>
+
+      {% if summarized %}
+      <div class="section summarized">
+        <h1>Summarized Content</h1>
+        <pre>{{ summarized }}</pre>
+      </div>
+      {% endif %}
+
+      <div class="section translated">
+        <h1>Translated Content</h1>
+        <pre>{{ translated }}</pre>
+      </div>
+
+      <div class="download-section">
+        <a href="{{ url_for('download') }}" class="btn-download">Download as Word</a>
+      </div>
+    </div>
+  </body>
+</html>
